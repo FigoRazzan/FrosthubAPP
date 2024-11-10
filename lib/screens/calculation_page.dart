@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'bmi_page.dart';
+import 'calculator.dart';
 
 class CalculationPage extends StatelessWidget {
   @override
@@ -55,7 +56,10 @@ class CalculationPage extends StatelessWidget {
                         Icons.calculate,
                         Colors.pinkAccent,
                         () {
-                          // Logika untuk kalkulator
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Calculator()));
                         },
                       ),
                       SizedBox(height: 50), // Mengurangi jarak antar menu

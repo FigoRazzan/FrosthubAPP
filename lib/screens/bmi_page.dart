@@ -47,12 +47,6 @@ class _BmiPageState extends State<BmiPage> {
               ? Color.fromARGB(255, 123, 129, 239)
               : Color(0xFF111328),
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(
-            color: isSelected
-                ? Color.fromARGB(255, 123, 129, 239)
-                : Colors.transparent,
-            width: 2,
-          ),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -107,7 +101,6 @@ class _BmiPageState extends State<BmiPage> {
                   decoration: BoxDecoration(
                     color: Color(0xFF1D1E33),
                     borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: Colors.white.withOpacity(0.3)),
                   ),
                   child: Column(
                     children: [
@@ -175,8 +168,6 @@ class _BmiPageState extends State<BmiPage> {
                         decoration: BoxDecoration(
                           color: Color(0xFF1D1E33),
                           borderRadius: BorderRadius.circular(15),
-                          border:
-                              Border.all(color: Colors.white.withOpacity(0.3)),
                         ),
                         child: Column(
                           children: [
@@ -230,8 +221,6 @@ class _BmiPageState extends State<BmiPage> {
                         decoration: BoxDecoration(
                           color: Color(0xFF1D1E33),
                           borderRadius: BorderRadius.circular(15),
-                          border:
-                              Border.all(color: Colors.white.withOpacity(0.3)),
                         ),
                         child: Column(
                           children: [
@@ -287,7 +276,6 @@ class _BmiPageState extends State<BmiPage> {
                   decoration: BoxDecoration(
                     color: Color(0xFF1D1E33),
                     borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: Colors.white.withOpacity(0.3)),
                   ),
                   child: Column(
                     children: [
