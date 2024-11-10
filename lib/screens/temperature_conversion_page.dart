@@ -324,7 +324,7 @@ class _TemperatureConversionPageState extends State<TemperatureConversionPage> {
                     height: 60,
                     margin: EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: Colors.orangeAccent,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Center(

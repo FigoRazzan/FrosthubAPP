@@ -345,7 +345,7 @@ class _CurrencyConversionPageState extends State<CurrencyConversionPage> {
                     height: 60,
                     margin: EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: Colors.greenAccent,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Center(
