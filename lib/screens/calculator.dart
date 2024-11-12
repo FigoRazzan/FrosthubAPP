@@ -69,7 +69,7 @@ class _CalculatorState extends State<Calculator> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50.0),
             ),
-            backgroundColor: isOperator ? Colors.pink[50] : Colors.black,
+            backgroundColor: isOperator ? Colors.pink[50] : Colors.white,
           ),
           onPressed: () => buttonPressed(buttonText),
           child: Text(
@@ -88,13 +88,13 @@ class _CalculatorState extends State<Calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.pink[200]),
           onPressed: () => Navigator.pop(context),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         elevation: 0,
       ),
       body: SafeArea(
