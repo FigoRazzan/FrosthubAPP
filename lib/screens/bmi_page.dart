@@ -19,14 +19,27 @@ class _BmiPageState extends State<BmiPage> {
     double bmiValue = weight / (heightInMeter * heightInMeter);
     String status = '';
 
-    if (bmiValue < 18.5) {
-      status = 'UNDERWEIGHT';
-    } else if (bmiValue >= 18.5 && bmiValue < 24.9) {
-      status = 'NORMAL';
-    } else if (bmiValue >= 25 && bmiValue < 29.9) {
-      status = 'OVERWEIGHT';
-    } else {
-      status = 'OBESE';
+    // Perbedaan interpretasi BMI berdasarkan gender
+    if (selectedGender == 'MALE') {
+      if (bmiValue < 18.5) {
+        status = 'UNDERWEIGHT';
+      } else if (bmiValue >= 18.5 && bmiValue < 24.9) {
+        status = 'NORMAL';
+      } else if (bmiValue >= 25 && bmiValue < 29.9) {
+        status = 'OVERWEIGHT';
+      } else {
+        status = 'OBESE';
+      }
+    } else if (selectedGender == 'FEMALE') {
+      if (bmiValue < 18.5) {
+        status = 'UNDERWEIGHT';
+      } else if (bmiValue >= 18.5 && bmiValue < 24.0) {
+        status = 'NORMAL';
+      } else if (bmiValue >= 24.0 && bmiValue < 29.0) {
+        status = 'OVERWEIGHT';
+      } else {
+        status = 'OBESE';
+      }
     }
 
     setState(() {
