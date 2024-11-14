@@ -14,12 +14,10 @@ class _CurrencyConversionPageState extends State<CurrencyConversionPage> {
 
   // Nilai tukar mata uang (disederhanakan)
   Map<String, double> rates = {
-    "SGD-IDR": 10957.46,
-    "IDR-SGD": 1 / 10957.46,
-    "USD-IDR": 15000,
-    "IDR-USD": 1 / 15000,
-    "EUR-IDR": 17000,
-    "IDR-EUR": 1 / 17000,
+    "SGD": 10957.46,
+    "IDR": 1, // IDR sebagai basis
+    "USD": 15000,
+    "EUR": 17000,
   };
 
   // Simbol mata uang
@@ -32,15 +30,29 @@ class _CurrencyConversionPageState extends State<CurrencyConversionPage> {
 
   // Fungsi untuk menghitung hasil konversi
   void calculate() {
-    // Hapus koma di amount untuk konversi yang benar
+    // Parsing angka dari input dan menangani kesalahan format
     double inputAmount = double.tryParse(amount.replaceAll(",", "")) ?? 0;
-    String rateKey = "$fromCurrency-$toCurrency";
-    double? rate = rates[rateKey];
+    double? fromRate = rates[fromCurrency];
+    double? toRate = rates[toCurrency];
 
-    if (rate != null) {
-      double result = inputAmount * rate;
+    // Pastikan nilai tukar tidak null sebelum melakukan perhitungan
+    if (fromRate != null && toRate != null && inputAmount > 0) {
+      double result;
+      // Kalkulasi dengan memperhitungkan apakah konversi berasal dari IDR atau ke IDR
+      if (fromCurrency == "IDR") {
+        result = inputAmount / toRate;
+      } else if (toCurrency == "IDR") {
+        result = inputAmount * fromRate;
+      } else {
+        result = (inputAmount / fromRate) * toRate;
+      }
+
       setState(() {
         convertedAmount = formatNumber(result);
+      });
+    } else {
+      setState(() {
+        convertedAmount = "";
       });
     }
   }
@@ -130,7 +142,7 @@ class _CurrencyConversionPageState extends State<CurrencyConversionPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          'Konversi Mata',
+          'Konversi Mata Uang',
           style: TextStyle(color: Colors.black87),
         ),
         leading: IconButton(
@@ -322,16 +334,9 @@ class _CurrencyConversionPageState extends State<CurrencyConversionPage> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(12),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.05),
-                                blurRadius: 8,
-                                offset: Offset(0, 2),
-                              ),
-                            ],
                           ),
                           child: Center(
-                            child: Icon(Icons.backspace_outlined),
+                            child: Icon(Icons.backspace, color: Colors.black),
                           ),
                         ),
                       ),
