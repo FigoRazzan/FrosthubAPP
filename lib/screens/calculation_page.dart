@@ -52,7 +52,7 @@ class CalculationPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 80),
+                        SizedBox(height: 40),
                         _buildMenuItem(
                           context,
                           "Kalkulator",
